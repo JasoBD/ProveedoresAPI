@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  proveedoresapi:
+    image: proveedoresapi
+    build:
+      context: .
+      dockerfile: ProveedoresApi/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
